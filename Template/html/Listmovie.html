@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/movie.css'%}">
+
+  </head>
+  <body>
+    <div class='container' align='center'>
+        <h1>List of Movies</h1>
+      {% if list %}
+      <table border="">
+        <thead >
+          <th >id</th>
+          <th>name</th>
+          <th>date</th>
+          <th>hero</th>
+          <th>heroine</th>
+          <th>ratings</th>
+          <th>update</th>
+          <th>delete</th>
+        </thead>
+
+        {% for movie in list %}
+         <tr>
+           <td>{{movie.id}}</td>
+           <td>{{movie.name}}</td>
+           <td>{{movie.date}}</td>
+           <td>{{movie.hero}}</td>
+           <td>{{movie.heroine}}</td>
+           <td>{{movie.ratings}}</td>
+           <td><a href="/update/{{movie.id}}">update record</a></td>
+           <td><a href="delete/{{movie.id}}">delete record</a></td>
+         </tr>
+         {% endfor %}
+
+      </table>
+    {% else %}
+      <p>no movies found</p>
+     {% endif %}<br>
+    <a type='text' href="addmovies" class='btn btn-primary'>add movies</a>
+    <a type='text' href="/" class='btn btn-primary'>Go to index page</a>
+
+    </div>
+  </body>
+</html>

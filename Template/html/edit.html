@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div align='center'>
+    <h1>update Movie Record</h1>
+    <form  method="post">
+      {% csrf_token %}
+    Id:<input type='text' value='{{movie.id}}' readonly><br><br>
+    Name:<input type='text' value='{{movie.name}}'><br><br>
+    Date:<input type='text' value='{{movie.date}}'><br><br>
+    Hero:<input type='text' value='{{movie.hero}}'><br><br>
+    Heroine:<input type='text' value='{{movie.heroine}}'><br><br>
+    Ratings:<input type='text' value='{{movie.ratings}}'><br><br>
+    <input type="submit" name="" value="add record" class='btn btn-primary'>&nbsp
+      <button class='btn btn-primary' >  <a href='/listmovies' >Cancel</a></button>
+    </form>
+    </div>
+  </body>
+</html>
